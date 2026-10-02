@@ -1,0 +1,6 @@
+{
+  "name": "Zero Measure",
+  "description": "AR measurement app powered by Google ARCore. Features real-world 3D distance tracking, surface plane detection, live preview, and adaptive units.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
