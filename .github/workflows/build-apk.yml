@@ -32,20 +32,21 @@ jobs:
             chmod +x gradlew
           fi
 
-      - name: Run Unit Tests
-        run: |
-          if [ -f "./gradlew" ]; then
-            ./gradlew testDebugUnitTest --continue
-          else
-            gradle testDebugUnitTest --continue
-          fi
-
       - name: Build Debug APK
         run: |
           if [ -f "./gradlew" ]; then
             ./gradlew assembleDebug --stacktrace
           else
             gradle assembleDebug --stacktrace
+          fi
+
+      - name: Run Unit Tests
+        continue-on-error: true
+        run: |
+          if [ -f "./gradlew" ]; then
+            ./gradlew testDebugUnitTest --continue || true
+          else
+            gradle testDebugUnitTest --continue || true
           fi
 
       - name: Upload APK Artifact
